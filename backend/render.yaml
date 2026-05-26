@@ -1,0 +1,15 @@
+# render.yaml — place this in backend/ for one-click Render deploy
+services:
+  - type: web
+    name: taskflow-api
+    env: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        sync: false   # Set manually in Render dashboard
+      - key: FRONTEND_URL
+        sync: false   # Set manually in Render dashboard
